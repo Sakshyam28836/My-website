@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            background-color: #3a7d7d;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #2b5c5c;
+        }
+
+        /* Main Container Styling */
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #3a7d7d;
+            font-size: 30px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3a7d7d;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2b5c5c;
+        }
+
+        /* User Section Styling */
+        .user-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .user-section a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #3a7d7d;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .user-section a:hover {
+            background-color: #2b5c5c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="about.html">About Us</a>
+        <a href="reviews.html">User Reviews</a>
+        <a href="services.html">Our Services</a>
+        <a href="profile.html">Profile</a> <!-- New Profile Link -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Welcome to Free Fire Topup</h2>
+        <p>Select the service you need from the options below.</p>
+
+        <!-- Link to UID Topup Page -->
+        <a href="uidtopup.html" class="button">Go to Free Fire UID Topup</a>
+
+        <!-- User Info Section -->
+        <div class="user-section">
+            <h3>Manage Your Profile</h3>
+            <a href="user.html" class="button">Go to Your Profile</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire UID Topup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #3a7d7d;
+            font-size: 30px;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"], select, button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #3a7d7d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2b5c5c;
+        }
+
+        .price {
+            font-size: 20px;
+            color: #3a7d7d;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .topup-details {
+            margin-top: 20px;
+        }
+
+        .diamond-option {
+            font-size: 18px;
+            padding: 12px;
+            background-color: #e0f7fa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .diamond-option:hover {
+            background-color: #b2ebf2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Free Fire UID Topup</h2>
+        <p>Select your diamond amount and enter your UID to top up.</p>
+
+        <label for="uid">Enter your Free Fire UID:</label>
+        <input type="text" id="uid" placeholder="Enter your Free Fire UID" required>
+
+        <div class="topup-details">
+            <label for="diamond-rate">Select Diamond Amount:</label>
+            <select id="diamond-rate" required>
+                <option value="25" data-price="40">25 💎 = Rs 40</option>
+                <option value="50" data-price="60">50 💎 = Rs 60</option>
+                <option value="115" data-price="95">115 💎 = Rs 95</option>
+                <option value="240" data-price="190">240 💎 = Rs 190</option>
+                <option value="355" data-price="280">355 💎 = Rs 280</option>
+                <option value="480" data-price="380">480 💎 = Rs 380</option>
+                <option value="610" data-price="480">610 💎 = Rs 480</option>
+                <option value="725" data-price="585">725 💎 = Rs 585</option>
+                <option value="850" data-price="680">850 💎 = Rs 680</option>
+                <option value="965" data-price="795">965 💎 = Rs 795</option>
+                <option value="1090" data-price="900">1090 💎 = Rs 900</option>
+                <option value="1240" data-price="970">1240 💎 = Rs 970</option>
+                <option value="2090" data-price="1660">2090 💎 = Rs 1660</option>
+                <option value="2530" data-price="2000">2530 💎 = Rs 2000</option>
+                <option value="5060" data-price="3650">5060 💎 = Rs 3650</option>
+                <option value="weekly" data-price="200">Weekly Pass = Rs 200</option>
+                <option value="monthly" data-price="1020">Monthly Pass = Rs 1020</option>
+                <option value="combo" data-price="1160">Combo Pass = Rs 1160</option>
+                <option value="levelpass" data-price="190">Level Pass = Rs 190</option>
+            </select>
+
+            <div class="price" id="price-display">Price: Rs 40</div>
+
+            <button id="topup-uid">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the selected diamond rate and price
+        const diamondRateSelect = document.getElementById('diamond-rate');
+        const priceDisplay = document.getElementById('price-display');
+
+        // Update the price display based on the selected diamond rate
+        diamondRateSelect.addEventListener('change', function() {
+            const selectedOption = diamondRateSelect.options[diamondRateSelect.selectedIndex];
+            const diamonds = parseInt(selectedOption.value);
+            let price = parseInt(selectedOption.getAttribute('data-price'));
+
+            // If the diamonds are more than 400, increase the price by Rs 30 for every 30 diamonds above 400
+            if (diamonds > 400) {
+                const extraDiamonds = diamonds - 400;
+                const extraPrice = Math.ceil(extraDiamonds / 30) * 30; // Rs 30 increase per 30 diamonds
+                price += extraPrice;
+            }
+
+            priceDisplay.textContent = `Price: Rs ${price}`;
+        });
+
+        // Handle Free Fire UID Topup
+        document.getElementById('topup-uid').addEventListener('click', function() {
+            const uid = document.getElementById('uid').value;
+            const selectedOption = diamondRateSelect.options[diamondRateSelect.selectedIndex];
+            const diamonds = selectedOption.value;
+            let price = parseInt(selectedOption.getAttribute('data-price'));
+
+            if (diamonds > 400) {
+                const extraDiamonds = diamonds - 400;
+                const extraPrice = Math.ceil(extraDiamonds / 30) * 30; // Rs 30 increase per 30 diamonds
+                price += extraPrice;
+            }
+
+            if (uid === "") {
+                alert("Please enter your UID.");
+                return;
+            }
+
+            // Redirect to payment page with UID and price as query parameters
+            window.location.href = `payment.html?uid=${uid}&price=${price}`;
+        });
+    </script>
+
+</body>
+</html>

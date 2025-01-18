@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Payment Proof</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #3a7d7d;
+            font-size: 30px;
+        }
+
+        .upload-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .upload-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3a7d7d;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2b5c5c;
+        }
+
+        .wait-message {
+            font-size: 18px;
+            color: #ff6f00;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .feedback-message {
+            font-size: 16px;
+            color: #3a7d7d;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .feedback-link {
+            color: #3a7d7d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Upload Payment Proof</h2>
+
+        <div class="upload-section">
+            <p>Please upload a screenshot of your payment as proof.</p>
+            <input type="file" id="payment-proof" accept="image/*" required>
+            <button class="button" id="upload-proof">Upload Proof</button>
+        </div>
+
+        <!-- Waiting Message after upload -->
+        <div class="wait-message" id="wait-message" style="display: none;">
+            <p><strong>Please wait for 6-7 hours</strong>, our staff might be at school or college. If you're still waiting, you're not getting scammed... or are you? 😜</p>
+        </div>
+
+        <div class="note">
+            <p><strong>Note:</strong> Please make sure to double-check the payment details before uploading. We process the payment as soon as possible, but it might take some time depending on our availability.</p>
+        </div>
+
+        <!-- Feedback Message -->
+        <div class="feedback-message" id="feedback-message" style="display: none;">
+            <p>Thank you for your patience! We value your feedback. Please provide your review <a href="reviews.html" class="feedback-link">here</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('upload-proof').addEventListener('click', function() {
+            const proofFile = document.getElementById('payment-proof').files[0];
+            if (!proofFile) {
+                alert("Please select a file to upload.");
+            } else {
+                // Simulate the upload process and show the waiting message
+                alert("Proof uploaded successfully!");
+                document.getElementById('wait-message').style.display = 'block';
+                document.getElementById('feedback-message').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>

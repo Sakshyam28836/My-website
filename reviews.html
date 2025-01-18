@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - GamerzBoy Topup Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            background-color: #3a7d7d;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: #ff5e00;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-form h2 {
+            color: #ff5e00;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .review-form {
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .review-form label {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .review-form input, .review-form textarea, .review-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .review-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff5e00;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background-color: #ff8a33;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 30px;
+            color: #d3d3d3;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .rating input:checked ~ label {
+            color: #ffcc00;
+        }
+
+        .review-section {
+            margin-top: 50px;
+        }
+
+        .review-section h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #ff5e00;
+            margin-bottom: 30px;
+        }
+
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-item {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .review-item .review-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .review-item .review-content .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .review-item .review-content .user-info h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .review-item .review-content .review-text {
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .pagination a {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #3a7d7d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover {
+            background-color: #2b5c5c;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GamerzBoy Topup Center - Reviews</h1>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="review-form">
+        <h2>Submit Your Review</h2>
+
+        <form id="reviewForm">
+            <!-- Rating System -->
+            <label for="rating">Rating:</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+
+            <!-- User Info and Review Fields -->
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your name">
+
+            <label for="reviewText">Your Review:</label>
+            <textarea id="reviewText" name="reviewText" rows="4" placeholder="Write your review..." required></textarea>
+
+            <label for="userImage">Upload Your Image:</label>
+            <input type="file" id="userImage" name="userImage" accept="image/*">
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+
+    <div class="review-section">
+        <h3>Customer Reviews</h3>
+
+        <!-- Display reviews here -->
+        <div class="reviews" id="reviews-container">
+            <!-- Example review item (Fake reviews will be injected here) -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" id="prev-page">Previous</a>
+            <a href="#" id="next-page">Next</a>
+        </div>
+    </div>
+</div>
+
+<script>
+// Fake reviews data
+let reviews = [
+    {name: "John Doe", rating: 5, text: "Great service! Top-up was done in no time. Will recommend to friends!", image: "user1.jpg"},
+    {name: "Jane Smith", rating: 4, text: "Quick and easy. Loved the service.", image: "user2.jpg"},
+    {name: "Tom Brown", rating: 3, text: "Decent experience, but took a bit longer than expected.", image: "user3.jpg"},
+    {name: "Alice Johnson", rating: 5, text: "Excellent! Best top-up service.", image: "user4.jpg"},
+    {name: "Bob White", rating: 2, text: "Service was okay, but I had some issues.", image: "user5.jpg"},
+    // 20 more fake reviews...
+];
+
+let currentPage = 1;
+const reviewsPerPage = 5;
+
+function renderReviews(page) {
+    const start = (page - 1) * reviewsPerPage;
+    const end = page * reviewsPerPage;
+    const reviewsToDisplay = reviews.slice(start, end);
+    
+    const reviewsContainer = document.getElementById("reviews-container");
+    reviewsContainer.innerHTML = ""; // Clear current reviews
+
+    reviewsToDisplay.forEach(review => {
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+
+        const starRating = `<div class="rating">${"★".repeat(review.rating)}${"★".repeat(5 - review.rating)}</div>`;
+
+        reviewItem.innerHTML = `
+            <div class="review-content">
+                <div class="user-info">
+                    <img src="${review.image}" alt="User Image">
+                    <h4>${review.name}</h4>
+                </div>
+                <div class="review-text">${review.text}</div>
+                <div class="star-rating">${starRating}</div>
+            </div>
+        `;
+        
+        reviewsContainer.appendChild(reviewItem);
+    });
+}
+
+// Handle form submission
+document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    const username = document.getElementById('username').value;
+    const reviewText = document.getElementById('reviewText').value;
+    
+    // Add new review to the array
+    reviews.unshift({name: username, rating: rating, text: reviewText, image: 'default.jpg'});
+
+    // Render updated reviews
+    renderReviews(currentPage);
+});
+
+// Initialize review rendering
+renderReviews(currentPage);
+</script>
+
+</body>
+</html>l

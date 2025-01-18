@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamerzBoy Topup Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #3a7d7d;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #3a7d7d;
+            font-size: 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #e0f7fa;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #b2ebf2;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #3a7d7d;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            margin: 0 20px;
+            padding: 15px 30px;
+            background-color: #3a7d7d;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #2b5c5c;
+        }
+
+        .footer {
+            background-color: #3a7d7d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-select {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .service-select select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #e0f7fa;
+        }
+
+        .service-select button {
+            padding: 10px 20px;
+            background-color: #3a7d7d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .service-select button:hover {
+            background-color: #2b5c5c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GamerzBoy Topup Center</h1>
+    </header>
+
+    <nav>
+        <a href="about.html">About Us</a>
+        <a href="services.dat">Our Services</a>
+        <a href="reviews.html">Reviews</a> <!-- Link to reviews page -->
+    </nav>
+
+    <div class="section">
+        <h2>Free Fire Topup</h2>
+        <p>Choose a topup option for Free Fire to get started.</p>
+
+        <div class="service-select">
+            <h3>Select Your Topup Option:</h3>
+            <select id="topup-select">
+                <option value="uidtopup">Free Fire UID Topup</option>
+                <option value="idtopup">Free Fire ID Login Topup</option>
+            </select>
+            <button onclick="redirectToTopup()">Go</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 GamerzBoy Topup Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToTopup() {
+            const topupSelect = document.getElementById('topup-select');
+            const selectedOption = topupSelect.value;
+
+            if (selectedOption === "uidtopup") {
+                window.location.href = "uidtopup.html";  // Redirect to UID Topup page
+            } else if (selectedOption === "idtopup") {
+                window.location.href = "idtopup.html";  // Redirect to ID Login Topup page
+            }
+        }
+    </script>
+
+</body>
+</html>
