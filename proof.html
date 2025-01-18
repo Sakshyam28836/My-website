@@ -86,6 +86,43 @@
             font-weight: bold;
             text-decoration: none;
         }
+
+        /* New Styles */
+        .amount-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .amount-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3a7d7d;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: not-allowed;
+        }
+
+        .continue-btn.active {
+            cursor: pointer;
+            background-color: #2b5c5c;
+        }
+
     </style>
 </head>
 <body>
@@ -108,6 +145,13 @@
             <p><strong>Note:</strong> Please make sure to double-check the payment details before uploading. We process the payment as soon as possible, but it might take some time depending on our availability.</p>
         </div>
 
+        <!-- Amount and UID Section -->
+        <div class="amount-section">
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            <input type="text" id="uid" placeholder="Enter UID" required>
+            <button class="continue-btn" id="continueBtn" disabled>Continue</button>
+        </div>
+
         <!-- Feedback Message -->
         <div class="feedback-message" id="feedback-message" style="display: none;">
             <p>Thank you for your patience! We value your feedback. Please provide your review <a href="reviews.html" class="feedback-link">here</a>.</p>
@@ -115,15 +159,42 @@
     </div>
 
     <script>
+        // Handle file upload
         document.getElementById('upload-proof').addEventListener('click', function() {
             const proofFile = document.getElementById('payment-proof').files[0];
             if (!proofFile) {
                 alert("Please select a file to upload.");
             } else {
-                // Simulate the upload process and show the waiting message
                 alert("Proof uploaded successfully!");
                 document.getElementById('wait-message').style.display = 'block';
                 document.getElementById('feedback-message').style.display = 'block';
+            }
+        });
+
+        // Amount and UID logic
+        const amountInput = document.getElementById('amount');
+        const continueBtn = document.getElementById('continueBtn');
+        const uidInput = document.getElementById('uid');
+
+        amountInput.addEventListener('input', () => {
+            continueBtn.disabled = !amountInput.value || !uidInput.value;
+            if (amountInput.value && uidInput.value) {
+                continueBtn.classList.add('active');
+            } else {
+                continueBtn.classList.remove('active');
+            }
+        });
+
+        uidInput.addEventListener('focus', () => {
+            amountInput.focus();
+        });
+
+        continueBtn.addEventListener('click', () => {
+            if (amountInput.value && uidInput.value) {
+                alert("Proceeding with the payment...");
+                window.location.href = "paymentPage.html"; // Redirect to payment page
+            } else {
+                alert('Please enter both amount and UID.');
             }
         });
     </script>
